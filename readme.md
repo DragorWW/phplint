@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/DragorWW/phplint.svg?branch=master)](https://travis-ci.org/DragorWW/phplint)
+
 # PHP Lint
 This is implementate ESLint architecture for PHP code lint
 

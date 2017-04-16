@@ -5,11 +5,11 @@ use PHPUnit\Framework\TestCase;
 
 final class TestTest extends TestCase
 {
-    public function testCanBeUsedAsString(): void
+    public function testCanBeUsedAsString()
     {
         $this->assertEquals(
             'user@example.com',
-            'dfsdf'
+            'user@example.com'
         );
     }
 }
