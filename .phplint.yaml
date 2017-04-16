@@ -1,0 +1,4 @@
+parserOptions:
+  phpVersion: 7
+rules:
+  eqeqeq: "error"

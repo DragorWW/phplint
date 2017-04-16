@@ -1,0 +1,24 @@
+{
+    "name": "dragorww/php-lint",
+    "type": "library",
+    "autoload": {
+        "psr-4": {"PhpLint\\": "lib/"}
+    },
+    "scripts": {
+        "test": "phpunit ./test"
+    },
+    "require": {
+        "nikic/php-parser": "^3.0",
+        "symfony/console": "^3.2",
+        "symfony/finder": "^3.2",
+        "phpunit/phpunit": "^6.1",
+        "symfony/config": "^3.2",
+        "symfony/yaml": "^3.2"
+    },
+    "authors": [
+        {
+            "name": "Andreev Sergey",
+            "email": "DragorWW@gmail.com"
+        }
+    ]
+}

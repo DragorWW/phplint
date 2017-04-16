@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+// application.php
+
+require __DIR__.'/../vendor/autoload.php';
+
+
+use Symfony\Component\Console\Application;
+use PhpLint\Console\LintCommand;
+
+$command = new LintCommand();
+$application = new Application('phplint', '0.0.0');
+$application->add($command);
+$application->setDefaultCommand($command->getName(), true);
+$application->run();
