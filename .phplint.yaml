@@ -2,3 +2,7 @@ parserOptions:
   phpVersion: 7
 rules:
   eqeqeq: "error"
+  NoInclude: "error"
+  NoIniSet: "error"
+  UseNamespace: "error"
+  OneClass: "error"

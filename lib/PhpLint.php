@@ -58,4 +58,14 @@ class PhpLint
         $stmts = $this->parser->parse($file->getContents());
         $this->traverser->traverse($stmts);
     }
+
+    public function getAst($code)
+    {
+        return $this->parser->parse($code);
+    }
+    public function getTokens($code)
+    {
+        $this->parser->parse($code);
+        return $this->lexer->getTokens();
+    }
 }

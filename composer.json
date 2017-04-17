@@ -8,7 +8,7 @@
         "test": "phpunit ./test"
     },
     "require": {
-        "nikic/php-parser": "^3.0",
+        "nikic/php-parser": "dev-master",
         "symfony/console": "^3.2",
         "symfony/finder": "^3.2",
         "phpunit/phpunit": "^6.1",

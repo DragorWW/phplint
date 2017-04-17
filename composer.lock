@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "41a3b72792bf37b39f9402bc6e83ef21",
+    "content-hash": "d48077ef93596789f6fd0059abdf6bd4",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -104,24 +104,24 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.0.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "2b9e2f71b722f7c53918ab0c25f7646c2013f17d"
+                "reference": "bc75ac299012532a02ee5b2d37de23676624a769"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/2b9e2f71b722f7c53918ab0c25f7646c2013f17d",
-                "reference": "2b9e2f71b722f7c53918ab0c25f7646c2013f17d",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bc75ac299012532a02ee5b2d37de23676624a769",
+                "reference": "bc75ac299012532a02ee5b2d37de23676624a769",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": ">=5.5"
+                "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0|~5.0"
+                "phpunit/phpunit": "~5.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -129,7 +129,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -151,7 +151,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-03-05T18:23:57+00:00"
+            "time": "2017-04-09 17:51:18"
         },
         {
             "name": "phar-io/manifest",
@@ -1904,7 +1904,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "nikic/php-parser": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
