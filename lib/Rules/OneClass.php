@@ -14,7 +14,7 @@ class OneClass extends Rule
         $classList = $finder->findInstanceOf($nodes,Node\Stmt\Class_::class);
         if($classList && count($classList) > 1) {
             foreach ($classList as $class) {
-                $this->reporter->report($class, 'One class per file', get_class($this));
+                $this->report($class, 'One class per file');
             }
 
         }

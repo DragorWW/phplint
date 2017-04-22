@@ -1,6 +1,7 @@
 <?php
 namespace PhpLint\Console;
 
+use PhpLint\Config\Configuration;
 use PhpLint\ConfigLoader;
 use PhpLint\Finder;
 use PhpLint\PhpLint;
@@ -18,35 +19,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Config\FileLocator;
-
-use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-
-class Configuration implements ConfigurationInterface
-{
-    /**
-     * @return TreeBuilder
-     */
-    public function getConfigTreeBuilder()
-    {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('root');
-        $rootNode
-            ->children()
-                ->arrayNode('parserOptions')
-                    ->children()
-                        ->integerNode('phpVersion')->end()
-                    ->end()
-                ->end()
-                ->arrayNode('rules')
-                    ->prototype('scalar')
-                        ->end()
-                    ->end()
-                ->end()
-            ->end();
-        return $treeBuilder;
-    }
-}
 
 
 class LintCommand extends Command
@@ -142,10 +114,12 @@ class LintCommand extends Command
                  */
                 $node = $report['node'];
 
-                $io->comment($node->getAttribute('startLine') . ':' . $node->getAttribute('startTokenPos') . ' error ' . $report['message'] . ' ' . $report['rule']);
+                $io->writeln($node->getAttribute('startLine') . ':' . $node->getAttribute('startTokenPos') . ' error ' . $report['message'] . ' ' . $report['rule']);
             }
         }
 
-
+        if (count($reportList)) {
+            return 1;
+        }
     }
 }

@@ -1,8 +1,13 @@
 parserOptions:
   phpVersion: 7
 rules:
-  eqeqeq: "error"
+  ClassMethodCamelCase: "error"
+  Eqeqeq: "error"
   NoInclude: "error"
-  NoIniSet: "error"
+  NoShortOpenTag: "error"
   UseNamespace: "error"
+  ConstantsUpperCase: "error"
+  NoEcho: "error"
+  NoIniSet: "error"
+  NoInlineHtml: "error"
   OneClass: "error"

@@ -5,7 +5,8 @@
         "psr-4": {"PhpLint\\": "lib/"}
     },
     "scripts": {
-        "test": "phpunit ./test"
+        "test": "phpunit --testdox ./test",
+        "lint": "./bin/php-lint ./lib/"
     },
     "require": {
         "nikic/php-parser": "dev-master",
@@ -13,7 +14,8 @@
         "symfony/finder": "^3.2",
         "phpunit/phpunit": "^6.1",
         "symfony/config": "^3.2",
-        "symfony/yaml": "^3.2"
+        "symfony/yaml": "^3.2",
+        "nicmart/string-template": "^0.1.1"
     },
     "authors": [
         {

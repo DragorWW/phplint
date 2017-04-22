@@ -2,12 +2,17 @@
 namespace PhpLint;
 
 use PhpParser\Node;
+use StringTemplate;
 
 class Reporter {
     private $reportList = [];
     private $_filePath = '';
     private static $_instance = null;
+    private $engine;
+
     private function __construct() {
+        $this->engine = new StringTemplate\Engine;
+
     }
     protected function __clone() {
     }
@@ -23,12 +28,12 @@ class Reporter {
     {
         $this->_filePath = $filePath;
     }
-    public function report(Node $node, string $message, $rule)
+    public function report(Node $node, string $message, array $data = [], $name)
     {
         $this->reportList[] = [
             'node' => $node,
-            'message' => $message,
-            'rule' => $rule,
+            'message' => $this->engine->render($message, $data),
+            'rule' => $name,
             'file' => $this->_filePath,
         ];
     }

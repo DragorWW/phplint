@@ -9,7 +9,9 @@ class NoIniSet extends Rule
     public function enterNode(Node $node)
     {
         if($node instanceof Node\Expr\FuncCall) {
-            $this->reporter->report($node, 'side effect: change ini settings', 'NoIniSet');
+            if ($node->name->toString() === 'ini_set') {
+                $this->report($node, 'side effect: change ini settings');
+            }
         }
     }
 }

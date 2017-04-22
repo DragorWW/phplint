@@ -10,12 +10,16 @@ $code = '<?php';
 
 $phpLint = new PhpLint\PhpLint();
 
+const VERSION = '1.0';
 $phpLint->setRules([
     new Eqeqeq('error'),
 ]);
 
 
-print_r($phpLint->getAst('<?php namespace Vendor\Model; ?>'));
+$asd = $phpLint->getAst('<?php
+// 
+');
+print_r($asd);
 /*echo json_encode($phpLint->getAst('<?php ini_set(\'error_reporting\', E_ALL); ?>'), JSON_PRETTY_PRINT), "\n";
 */
 

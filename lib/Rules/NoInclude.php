@@ -10,7 +10,7 @@ class NoInclude extends Rule
     {
         if($node instanceof Node\Expr\Include_) {
             if ($node->type === Node\Expr\Include_::TYPE_INCLUDE) {
-                $this->reporter->report($node, 'side effect: loads a file', get_class($this));
+                $this->report($node, 'side effect: loads a file');
 
             }
         }

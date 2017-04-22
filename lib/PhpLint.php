@@ -4,26 +4,21 @@ namespace PhpLint;
 use PhpParser\ParserFactory;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\NodeTraverser;
-use PhpParser\Lexer;
+use PhpLint\Parser\Lexer;
 
-class MyLexer extends Lexer {
-    public function __construct(array $options = array()) {
-        $this->getNextToken();
-        parent::__construct($options);
-        $this->dropTokens = array_fill_keys(
-            array(T_WHITESPACE, T_OPEN_TAG, T_COMMENT, T_DOC_COMMENT), 0
-        );
-    }
-}
 
 class PhpLint
 {
     private $parser;
     private $traverser;
     private $lexer;
+    /**
+     * @var Rule[]
+     */
+    private $rules;
     public function __construct()
     {
-        $this->lexer = new MyLexer(array(
+        $this->lexer = new Lexer(array(
             'usedAttributes' => array(
                 'comments',
                 'startLine',
@@ -50,12 +45,17 @@ class PhpLint
     }
     public function setRule($rule)
     {
+        $this->rules[] = $rule;
         $this->traverser->addVisitor($rule);
     }
 
     public function validate($file) {
         Reporter::getInstance()->setFilePath($file->getRealPath());
         $stmts = $this->parser->parse($file->getContents());
+        foreach ($this->rules as $rule) {
+            $rule->setTokens($this->lexer->getTokens());
+        }
+
         $this->traverser->traverse($stmts);
     }
 

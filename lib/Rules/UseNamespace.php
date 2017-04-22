@@ -13,7 +13,7 @@ class UseNamespace extends Rule
         $finder = new NodeFinder;
         $isNamespace = $finder->findFirstInstanceOf($nodes,Node\Stmt\Namespace_::class);
         if(!$isNamespace) {
-            $this->reporter->report($nodes[0], 'Shuld use namespace', get_class($this));
+            $this->report($nodes[0], 'Shuld use namespace');
         }
     }
 }

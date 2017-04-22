@@ -9,7 +9,7 @@ class NoShortOpenTag extends Rule
     public function enterNode(Node $node)
     {
         if (is_a($node, 'PhpParser\Node\Expr\BinaryOp\Equal', true)) {
-            $this->reporter->report($node, 'Expected "===" and instead saw  "==".', 'eqeqeq');
+            $this->report($node, 'Expected "===" and instead saw  "==".');
         }
     }
 }
