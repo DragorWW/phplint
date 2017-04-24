@@ -1,6 +1,15 @@
 {
     "name": "dragorww/php-lint",
+    "description": "An AST-based pattern checker for PHP.",
+    "keywords": ["ast", "lint", "php", "parser"],
     "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andreev Sergey",
+            "email": "DragorWW@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {"PhpLint\\": "lib/"}
     },
@@ -9,18 +18,16 @@
         "lint": "./bin/php-lint ./lib/"
     },
     "require": {
+        "php": ">=7.0",
         "nikic/php-parser": "dev-master",
         "symfony/console": "^3.2",
         "symfony/finder": "^3.2",
-        "phpunit/phpunit": "^6.1",
         "symfony/config": "^3.2",
         "symfony/yaml": "^3.2",
         "nicmart/string-template": "^0.1.1"
     },
-    "authors": [
-        {
-            "name": "Andreev Sergey",
-            "email": "DragorWW@gmail.com"
-        }
-    ]
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
+    },
+    "bin": ["bin/php-lint"]
 }
